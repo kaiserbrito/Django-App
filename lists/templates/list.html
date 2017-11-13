@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="page-header">User List</h1>
+    <table class="table" id="user-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in user_list %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td class="text-center bg-warning">No User</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock  %}
