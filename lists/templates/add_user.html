@@ -1,16 +1,11 @@
 {% extends "base.html" %}
-{% load static %}
-
-{% block js %}
-    <script src="{% static 'js/app.js' %}"></script>
-{% endblock %}
 
 {% load widget_tweaks %}
 {% block title %}Add new User{% endblock %}
 
 {% block content %}
     <div id="add-user-content" class="col-md-8 col-md-offset-2">
-        <form method="post" action="{% url 'add_user' %}">
+        <form method="post" action="{% url 'user_list' %}">
             {% csrf_token %}
             {% for field in form %}
                 <div class="form-group{% if field.errors %} has-error{% endif %} ">
